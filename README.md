@@ -1,3 +1,3 @@
 # Blog
 
-A simple blog using Java + Play Framework :)
+A simple Java + Play Framework blog :)
