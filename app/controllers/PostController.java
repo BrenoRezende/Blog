@@ -6,20 +6,23 @@ import services.*;
 import com.google.inject.Inject;
 import views.html.post.*;
 
+import java.util.List;
+
 /**
  * Created by breno on 04/03/17.
  */
 
 public class PostController extends Controller {
 
-    private IPostService _postService;
+    private IPostService postService;
 
     @Inject
     public PostController(IPostService postService) {
-        this._postService = postService;
+        this.postService = postService;
     }
 
     public Result index () {
+        List<Post> posts = this.postService.getAll();
         return ok(index.render());
     }
 
