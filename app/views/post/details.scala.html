@@ -1,0 +1,5 @@
+@(post: Post)
+
+@main(post.getHeaderImage())(post.getTitle())(post.getSubtitle()) {
+    @Html(post.getText())
+}

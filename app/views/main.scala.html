@@ -4,7 +4,7 @@
  * two arguments, a `String` for the title of the page and an `Html`
  * object to insert into the body of the page.
  *@
-@(title: String)(subtitle: String)(content: Html)
+@(bgImage: String)(title: String)(subtitle: String)(content: Html)
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +54,7 @@
                             <a href="@routes.HomeController.index()">Home</a>
                         </li>
                         <li>
-                            <a href="post.html">Posts</a>
+                            <a href="@routes.PostController.index()">Posts</a>
                         </li>
                         <li>
                             <a href="contact.html">Contact</a>
@@ -68,7 +68,7 @@
 
         <!-- Page Header -->
         <!-- Set your background image for this header on the line below. -->
-        <header class="intro-header" style="background-image: url('@routes.Assets.versioned("images/home-bg.jpg")')">
+        <header class="intro-header" style="background-image: url('@routes.Assets.versioned(bgImage)')">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
