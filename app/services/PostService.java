@@ -1,6 +1,9 @@
 package services;
 
+import com.google.inject.Inject;
 import models.Post;
+import play.db.*;
+
 import java.util.List;
 
 /**
@@ -8,8 +11,16 @@ import java.util.List;
  */
 public class PostService implements IPostService {
 
+    private Database db;
+
+    @Inject
+    public PostService(Database db) {
+        this.db = db;
+    }
+
     @Override
     public List<Post> getAll() {
+
         return null;
     }
 
