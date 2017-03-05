@@ -1,6 +1,5 @@
 package controllers;
 
-import javafx.geometry.Pos;
 import models.Post;
 import play.mvc.*;
 import services.*;
@@ -38,13 +37,18 @@ public class PostController extends Controller {
     public Result create() {
         Post post = new Post();
         post.title = "Sample Post";
-        post.subtitle = "This is the first post";
+        post.subtitle = "This is the second post";
         post.headerImage = "images/posts-bg.jpg";
-        post.text = "This is my first post, and I like to thanks everybody that support me in this project." +
-                "Fist of all, I want to thanks the people from my work, because of them, i took the necessary courage" +
-                "to create this Blog." +
+        post.text = "This is my first post, and I like to thanks everybody that support me in this project. " +
+                "First of all, I want to thanks the people from my work, because of them, i took the necessary courage " +
+                "to create this Blog. " +
                 "Thank you, guys.";
-        this.postService.create(post);
+        boolean success = this.postService.create(post);
+        return ok();
+    }
+
+    public Result delete(Long id) {
+        boolean success = this.postService.delete(id);
         return ok();
     }
 

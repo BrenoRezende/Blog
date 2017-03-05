@@ -32,6 +32,4 @@ public class Post extends Model{
     @Formats.DateTime(pattern = "dd/MM/yyyy")
     public Date pubDate = new Date();
 
-    public static Finder<Long, Post> find = new Finder<Long, Post>(Post.class);
-
 }

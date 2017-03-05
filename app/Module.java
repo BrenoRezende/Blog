@@ -1,6 +1,8 @@
+import com.avaje.ebean.EbeanServer;
 import com.google.inject.AbstractModule;
 import java.time.Clock;
 
+import providers.EbeanServerProvider;
 import services.ApplicationTimer;
 import services.AtomicCounter;
 import services.Counter;
@@ -26,6 +28,8 @@ public class Module extends AbstractModule {
         bind(ApplicationTimer.class).asEagerSingleton();
         // Set AtomicCounter as the implementation for Counter.
         bind(Counter.class).to(AtomicCounter.class);
+
+        bind(EbeanServer.class).toProvider(EbeanServerProvider.class).asEagerSingleton();
     }
 
 }
