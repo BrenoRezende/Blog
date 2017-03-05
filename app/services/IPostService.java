@@ -10,5 +10,10 @@ import java.util.List;
 
 @ImplementedBy(PostService.class)
 public interface IPostService {
+
     List<Post> getAll();
+    Post getById(Long id);
+    boolean delete(Long id);
+    boolean create(Post post);
+
 }

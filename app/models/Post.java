@@ -1,54 +1,37 @@
 package models;
 
+import com.avaje.ebean.Model;
+import play.data.format.*;
+import play.data.validation.*;
+
+import javax.persistence.*;
+import java.util.Date;
+
 /**
  * Created by breno on 04/03/17.
  */
-public class Post {
 
-    private int id;
-    private String headerImage;
-    private String title;
-    private String subtitle;
-    private String text;
+@Entity
+public class Post extends Model{
 
-    public int getId() {
-        return id;
-    }
+    @Id
+    public Long id;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    @Constraints.Required
+    public String headerImage;
 
-    public String getHeaderImage() {
-        return headerImage;
-    }
+    @Constraints.Required
+    public String title;
 
-    public void setHeaderImage(String headerImage) {
-        this.headerImage = headerImage;
-    }
+    @Constraints.Required
+    public String subtitle;
 
-    public String getTitle() {
-        return title;
-    }
+    @Constraints.Required
+    public String text;
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    @Formats.DateTime(pattern = "dd/MM/yyyy")
+    public Date pubDate = new Date();
 
-    public String getSubtitle() {
-        return subtitle;
-    }
-
-    public void setSubtitle(String subtitle) {
-        this.subtitle = subtitle;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
+    public static Finder<Long, Post> find = new Finder<Long, Post>(Post.class);
 
 }

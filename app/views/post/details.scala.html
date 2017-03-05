@@ -1,5 +1,5 @@
 @(post: Post)
 
-@main(post.getHeaderImage())(post.getTitle())(post.getSubtitle()) {
-    @Html(post.getText())
+@main(post.headerImage)(post.title)(post.subtitle) {
+    @Html(post.text)
 }
